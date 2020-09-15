@@ -6,7 +6,7 @@ Guardar usuário no banco de dados.
 O layout você encontra em: https://www.figma.com/file/XlARo5zdyBVeF3EFSkGSbr/Teste_Fullstack_Profitfy.me?node-id=0%3A1
 
 
-## Requisítos
+## Requisitos
 
 - TypeScript (opcional no front-end)
 - Node.js
@@ -14,7 +14,7 @@ O layout você encontra em: https://www.figma.com/file/XlARo5zdyBVeF3EFSkGSbr/Te
 - React.js
 - Styled Components
 
-## Requisítos Extras
+## Requisitos Extras
 
 - Testes automatizados
 - Clean architecture
