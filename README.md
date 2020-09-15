@@ -4,7 +4,7 @@ Desenvolver uma aplicação, incluindo uma API e uma tela de cadastro, seguindo 
 
 O layout você encontra em: 
 
-# Requisítos
+## Requisítos
 
 - TypeScript (opcional no front-end)
 - Node.js
@@ -12,14 +12,14 @@ O layout você encontra em:
 - React.js
 - Styled Components
 
-# Requisítos Extras
+## Requisítos Extras
 
 - Testes automatizados
 - Clean architecture
 - AWS Lambda
 - Docker
 
-# Entre os critérios de avaliação estão:
+## Entre os critérios de avaliação estão:
 
 - Usabilidade
 - Criatividade
@@ -28,7 +28,7 @@ O layout você encontra em:
 - Documentação do projeto (readme)
 - Performance
 
-# Como devo entregar o desafio?
+## Como devo entregar o desafio?
 
 - Crie uma branch a partir da branch master deste respositório
 - Implemente o desafio de código
