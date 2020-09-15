@@ -1,8 +1,10 @@
 # **O Desafio**
 
-Desenvolver uma aplicação, incluindo uma API e uma tela de cadastro, seguindo o layout apresentado no FIgma.
+Desenvolver uma aplicação, incluindo uma API e uma tela de cadastro, seguindo o layout apresentado no Figma.
+Guardar usuário no banco de dados.
 
-O layout você encontra em: 
+O layout você encontra em: https://www.figma.com/file/XlARo5zdyBVeF3EFSkGSbr/Teste_Fullstack_Profitfy.me?node-id=0%3A1
+
 
 ## Requisítos
 
@@ -16,7 +18,6 @@ O layout você encontra em:
 
 - Testes automatizados
 - Clean architecture
-- AWS Lambda
 - Docker
 
 ## Entre os critérios de avaliação estão:
@@ -34,10 +35,10 @@ O layout você encontra em:
 - Implemente o desafio de código
 - Faça um push de sua branch com o desafio implementado
 - Crie um pull request para branch master
-- Envie um e-mail para contato@profitfy.me, com o assunto '[Teste Dev] Desafio'
+- Envie um e-mail para victorlevi@profitfy.me, com o assunto '[Teste Dev] Desafio'
 
 ## Dúvida
 
-Se tiver qualquer dúvida sobre esse teste, envie um email com o título '[Teste Dev] Dúvida' para [c](mailto:rh@textecnologia.com.br)ontato@profitfy.me
+Se tiver qualquer dúvida sobre esse teste, envie um email com o título '[Teste Dev] Dúvida' para victorlevi@profitfy.me
 
 Good Luck! 🍀
