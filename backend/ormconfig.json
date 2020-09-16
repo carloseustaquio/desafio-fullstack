@@ -1,0 +1,16 @@
+{
+  "type": "postgres",
+  "url": "postgres://root:password@postgres/db",
+  "syncronize": false,
+  "migrationsTableName": "migrations",
+  "migrations": [
+    "src/migrations/*.ts"
+  ],
+  "entities": [
+    "src/models/**/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "src/migrations",
+    "entitiesDir": "src/models"
+  }
+}
