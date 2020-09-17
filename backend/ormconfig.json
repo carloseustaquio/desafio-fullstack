@@ -1,6 +1,6 @@
 {
   "type": "postgres",
-  "url": "postgres://root:password@postgres/db",
+  "url": "postgres://root:password@postgres/pg",
   "syncronize": false,
   "migrationsTableName": "migrations",
   "migrations": [
