@@ -1,10 +1,14 @@
 import "./util/module-alias";
+import "reflect-metadata"
 import express from "express";
 import { Server } from "@overnightjs/core";
 import { Application } from "express";
+import { createConnection } from "typeorm"
+import { UserController } from "./controllers/UserController";
+import { DBConnection } from "./util/db";
 
 export class SetupServer extends Server {
-  constructor(private port = 3000) {
+  constructor(private port = 8080) {
     super();
   }
 
@@ -19,17 +23,16 @@ export class SetupServer extends Server {
   }
 
   private setupControllers(): void {
-    // const forecastController = new ForecastController();
-    // const beachesController = new BeachesController()
-    // this.addControllers([forecastController, beachesController]);
+    const userController = new UserController();
+    this.addControllers([userController]);
   }
 
   private async databaseSetup(): Promise<void> {
-    // await database.connect();
+    await DBConnection.create()
   }
 
   public async close(): Promise<void> {
-    // await database.close();
+    await DBConnection.close();
   }
 
   public getApp(): Application {
