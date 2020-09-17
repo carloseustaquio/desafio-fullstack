@@ -1,5 +1,6 @@
 import { Validation } from "@src/helpers/Validation";
 import { IUserRepository } from "@src/repositories/IUserRespository";
+import { BadRequestError } from "@src/util/errors/RequestError";
 import { ICreateUserRequestDTO } from "./ICreateUserRequestDTO";
 
 export class CreateUser {
@@ -22,6 +23,6 @@ export class CreateUser {
 
   private async checkIfEmailIsAlreadyInUse(email: string) {
     const user = await this.userRepository.findByEmail(email)
-    if (user) throw new Error("Email already in use.")
+    if (user) throw new BadRequestError("Email already in use.")
   }
 }
