@@ -4,7 +4,7 @@ Desenvolver uma aplicação, incluindo uma API e uma tela de cadastro, seguindo 
 
 Guardar usuário no banco de dados.
 
-O layout você encontra em: https://www.figma.com/file/XlARo5zdyBVeF3EFSkGSbr/Teste_Fullstack_Profitfy.me?node-id=0%3A1
+<!-- O layout você encontra em: https://www.figma.com/file/XlARo5zdyBVeF3EFSkGSbr/Teste_Fullstack_Profitfy.me?node-id=0%3A1 -->
 
 
 ## Requisitos
