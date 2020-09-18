@@ -13,6 +13,7 @@ export const Container = styled.div`
   justify-items: center;
   justify-content: center;
   grid-template-columns: 100%;
+  grid-template-rows: min-content auto;
 
 
   > svg {
@@ -36,10 +37,12 @@ export const FormWrapper = styled.div`
   background: #F8F9FE;
   border-radius:  24px 24px 0 0;
   width: 100%;
+  height: 100%;
 
   min-height: 500px;
 
   @media screen and (min-width: 425px) {
+    height: fit-content;
     border-radius: 6px;
   }
 `;
