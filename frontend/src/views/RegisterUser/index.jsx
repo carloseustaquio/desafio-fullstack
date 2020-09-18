@@ -1,9 +1,8 @@
 import React from 'react'
 import * as S from './styles'
-import ProfitfyLogo from "../../components/ProfitfyLogo"
-import useMobile from '../../hooks/useMobile'
 import { Link } from "react-router-dom"
-import { Fade } from "react-reveal";
+import LoginLayout from "../../layouts/loginLayout"
+import RegisterUserForm from "./components/RegisterUserForm"
 
 const Links = ({ mobile }) => (
   <S.LinksWrapper mobile={mobile}>
@@ -13,21 +12,16 @@ const Links = ({ mobile }) => (
 )
 
 const RegisterUser = () => {
-  const [mobile] = useMobile(425)
-
   return (
-    <S.Container>
-      <ProfitfyLogo />
-      <Fade bottom distance="50px">
-        <div id="animation-wrapper">
-          <S.FormWrapper>
-            content here
-        {mobile && <Links mobile={mobile} />}
-          </S.FormWrapper>
-          {!mobile && <Links mobile={mobile} />}
-        </div>
-      </Fade>
-    </S.Container>
+    <LoginLayout>
+      {({ mobile }) => [
+        <S.FormWrapper>
+          <RegisterUserForm />
+          {mobile && <Links mobile={mobile} />}
+        </S.FormWrapper>,
+        !mobile && <Links mobile={mobile} />
+      ]}
+    </LoginLayout>
   )
 }
 

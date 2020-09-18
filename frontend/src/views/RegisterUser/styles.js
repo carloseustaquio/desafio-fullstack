@@ -1,39 +1,9 @@
 import styled from 'styled-components';
 import { darken } from "polished"
 
-export const Container = styled.div`
-  min-height: 100vh;
-  width: 100vw;
-  background: ${({ theme }) => `linear-gradient(180deg, ${theme.green} 0%, rgba(93, 199, 77, 0.67) 100%)`};
-
-  padding: 7vh 0 0 0;
-  overflow-y: auto;
-
-  display: grid;
-  justify-items: center;
-  justify-content: center;
-  grid-template-columns: 100%;
-  grid-template-rows: min-content auto;
-
-
-  > svg {
-    min-width: 250px;
-    width: 25vw;
-  }
-
-  #animation-wrapper {
-    width: 100%;
-  }
-
-  @media screen and (min-width: 425px) {
-    grid-template-columns: max(410px, 38vw);
-    padding: 9vh 0;
-  }
-`;
-
 export const FormWrapper = styled.div`
   margin-top: 26px;
-  padding: calc(1.5vw + 20px);
+  padding: calc(1.5vw + 24px);
   background: #F8F9FE;
   border-radius:  24px 24px 0 0;
   width: 100%;
