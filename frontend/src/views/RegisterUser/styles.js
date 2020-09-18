@@ -9,7 +9,7 @@ export const FormWrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  min-height: 500px;
+  min-height: fit-content;
 
   @media screen and (min-width: 425px) {
     height: fit-content;
