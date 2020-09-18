@@ -7,6 +7,7 @@ const Wrapper = styled.span`
     font-family: sans-serif;
     color: ${props => props.theme.red};
     font-size: 12px;
+    line-height: 8px;
 `
 
 export default props => <Wrapper className="errorMessage"><ErrMsg {...props} /></Wrapper>
