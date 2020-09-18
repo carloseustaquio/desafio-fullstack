@@ -5,6 +5,7 @@ export const Container = styled.div`
   min-height: 100vh;
   width: 100vw;
   background: ${({ theme }) => `linear-gradient(180deg, ${theme.green} 0%, rgba(93, 199, 77, 0.67) 100%)`};
+
   padding: 7vh 0 0 0;
   overflow-y: auto;
 
@@ -13,9 +14,14 @@ export const Container = styled.div`
   justify-content: center;
   grid-template-columns: 100%;
 
+
   > svg {
     min-width: 250px;
     width: 25vw;
+  }
+
+  #animation-wrapper {
+    width: 100%;
   }
 
   @media screen and (min-width: 425px) {
