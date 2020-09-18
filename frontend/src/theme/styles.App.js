@@ -29,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     select:-webkit-autofill:hover,
     select:-webkit-autofill:focus {
         border: none;
-        -webkit-text-fill-color: #eee;
+        -webkit-text-fill-color: ${({ theme }) => theme.grey_1};
         -webkit-box-shadow: 0 0 0px 1000px trasparent inset;
         transition: background-color 5000s ease-in-out 0s;
         font-size: unset;

@@ -5,4 +5,6 @@ export default {
   bg_grey: "#F8F9FE",
   blue: "#94A3B3",
   white: "#FFF",
+  grey_1: "#A0A4A8",
+  text: "#333",
 }
