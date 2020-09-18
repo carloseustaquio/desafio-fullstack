@@ -4,7 +4,7 @@ import { darken } from 'polished'
 export const Container = styled.div`
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: min-content 100% min-content;
+  grid-template-rows: min-content auto;
   gap: 30px;
 
   .errorMessage {
@@ -42,4 +42,13 @@ export const TermsAndSubmitBtn = styled.div`
       color: ${({ theme }) => darken(0.2, theme.blue)};
     }
   }
+
+  > button[type="submit"] {
+    justify-self: center;
+  }
+`;
+
+export const Loading = styled.img`
+  width: 16px;
+  height: 16px;
 `;

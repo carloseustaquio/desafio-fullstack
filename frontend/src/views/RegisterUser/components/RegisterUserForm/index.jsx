@@ -1,9 +1,11 @@
 import React from 'react'
 import * as S from "./styles"
 import { Formik, Field, Form } from "formik";
+
 import TextInput from "../../../../components/TextInput"
 import ErrorMessage from "../../../../components/ErrorMessage"
 import MaskedInput from '../../../../components/MaskedInput';
+import Button from "../../components/Button"
 
 import BRFlagIcon from "../../../../icons/BRFlagIcon"
 import UserIcon from "../../../../icons/UserIcon"
@@ -12,6 +14,7 @@ import EmailIcon from "../../../../icons/EmailIcon"
 import LockIcon from "../../../../icons/LockIcon"
 
 import validationSchema from './validationSchema';
+import PaperPlaneIcon from '../../../../icons/PaperPlaneIcon';
 
 const RegisterUserForm = () => {
   return (
@@ -26,7 +29,7 @@ const RegisterUserForm = () => {
           password: "",
           confirmPassword: "",
         }}
-        validationSchema={validationSchema}
+        // validationSchema={validationSchema}
         onSubmit={async (values, action) => {
           action.setSubmitting(true);
           await new Promise((r) => setTimeout(r, 3000));
@@ -105,7 +108,10 @@ const RegisterUserForm = () => {
                 Ao se cadastrar você automaticamente concorda com nossos
                 <span>&nbsp;Termos de Uso</span>
               </div>
-              <button type="submit">Enviar</button>
+              <Button type="submit">
+                {isSubmitting ? <S.Loading src="/assets/89.gif" /> : <PaperPlaneIcon />}
+                Enviar
+              </Button>
             </S.TermsAndSubmitBtn>
           </Form>
         )}
