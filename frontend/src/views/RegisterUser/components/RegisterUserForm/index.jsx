@@ -6,7 +6,7 @@ import api from "../../../../functions/api"
 import TextInput from "../../../../components/TextInput"
 import ErrorMessage from "../../../../components/ErrorMessage"
 import MaskedInput from '../../../../components/MaskedInput';
-import Button from "../../components/Button"
+import Button from "../../../../components/Button"
 
 import BRFlagIcon from "../../../../icons/BRFlagIcon"
 import UserIcon from "../../../../icons/UserIcon"
