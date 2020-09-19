@@ -16,11 +16,6 @@ export const Container = styled.div`
   grid-template-rows: min-content auto;
 
 
-  > svg {
-    min-width: 250px;
-    width: 25vw;
-  }
-
   #animation-wrapper {
     width: 100%;
   }
@@ -29,4 +24,20 @@ export const Container = styled.div`
     grid-template-columns: max(420px, 39.5vw);
     padding: 9vh 0;
   }
+`;
+
+export const LogoWrapper = styled.div`
+    height: 97px;
+  
+    > svg {
+      min-width: 250px;
+      width: 25vw;
+      position: fixed;
+      transform: translateX(-50%);
+
+      @media screen and (min-width: 425px) {
+        position: relative;
+        transform: none
+      }
+    }
 `;

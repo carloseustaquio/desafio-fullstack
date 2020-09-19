@@ -10,7 +10,9 @@ const LoginLayout = ({ children: Children }) => {
 
   return (
     <S.Container>
-      <ProfitfyLogo />
+      <S.LogoWrapper>
+        <ProfitfyLogo mobile={mobile} />
+      </S.LogoWrapper>
       <Fade bottom distance="50px">
         <div id="animation-wrapper">
           <Children mobile={mobile} />
