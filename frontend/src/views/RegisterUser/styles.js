@@ -30,7 +30,14 @@ export const LinksWrapper = styled.div`
   > a {
     color: ${({ theme, mobile }) => mobile ? theme.green_2 : theme.white};
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
     &:active {
+      color: ${({ theme, mobile }) => mobile ? darken(0.05, theme.green_2) : theme.white};
+    }
+
+    &:hover {
+      transform: scale(0.98);
       color: ${({ theme, mobile }) => mobile ? darken(0.05, theme.green_2) : theme.white};
     }
   }

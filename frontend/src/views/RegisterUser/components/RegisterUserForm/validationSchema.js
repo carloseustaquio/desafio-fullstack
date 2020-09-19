@@ -5,7 +5,10 @@ export const removeMask = value => value.replace(/\.|-|_| |\(|\)/g, "")
 export default Yup.object({
   firstName: Yup.string().required("Campo Obrigatório!"),
   secondName: Yup.string().required("Campo Obrigatório!"),
-  email: Yup.string().required("Campo Obrigatório!"),
+  email: Yup
+    .string()
+    .email("Digite um email válido")
+    .required("Campo Obrigatório!"),
   phone: Yup
     .string()
     .transform(
