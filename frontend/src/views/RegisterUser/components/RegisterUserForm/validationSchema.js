@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-const removeMask = value => value.replace(/\.|-|_| |\(|\)/g, "")
+export const removeMask = value => value.replace(/\.|-|_| |\(|\)/g, "")
 
 export default Yup.object({
   firstName: Yup.string().required("Campo Obrigatório!"),

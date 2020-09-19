@@ -14,7 +14,7 @@ import UserIcon2 from "../../../../icons/UserIcon2"
 import EmailIcon from "../../../../icons/EmailIcon"
 import LockIcon from "../../../../icons/LockIcon"
 
-import validationSchema from './validationSchema';
+import validationSchema, { removeMask } from './validationSchema';
 import PaperPlaneIcon from '../../../../icons/PaperPlaneIcon';
 import LoadingIcon from '../../../../icons/LoadingIcon';
 
@@ -42,6 +42,7 @@ const RegisterUserForm = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={async (values, action) => {
+          values.phone = removeMask(values.phone)
           action.setSubmitting(true);
           await handleSubmit(values)
           action.setSubmitting(false);
