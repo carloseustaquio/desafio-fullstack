@@ -17,6 +17,9 @@ export const Button = styled.button`
   line-height: 22px;
   letter-spacing: 0.01em;
 
+  display: flex;
+  align-items: center;
+
   *:first-child {
     margin-right: 14px;
   }

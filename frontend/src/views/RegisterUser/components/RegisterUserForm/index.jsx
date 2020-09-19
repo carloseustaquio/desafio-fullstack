@@ -1,6 +1,7 @@
 import React from 'react'
 import * as S from "./styles"
 import { Formik, Field, Form } from "formik";
+import api from "../../../../functions/api"
 
 import TextInput from "../../../../components/TextInput"
 import ErrorMessage from "../../../../components/ErrorMessage"
@@ -15,29 +16,38 @@ import LockIcon from "../../../../icons/LockIcon"
 
 import validationSchema from './validationSchema';
 import PaperPlaneIcon from '../../../../icons/PaperPlaneIcon';
+import LoadingIcon from '../../../../icons/LoadingIcon';
 
 const RegisterUserForm = () => {
+  const handleSubmit = async (values) => {
+    try {
+      const response = await api.post("/user", values)
+      console.log(response)
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
   return (
     <S.Container>
       <S.TextTop>Informe seus dados</S.TextTop>
       <Formik
         initialValues={{
-          firstName: "",
-          secondName: "",
-          email: "",
-          phone: "",
-          password: "",
-          confirmPassword: "",
+          firstName: "Test",
+          secondName: "Two",
+          email: "test@two.com",
+          phone: "12341234123",
+          password: "1234",
+          confirmPassword: "1234",
         }}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         onSubmit={async (values, action) => {
           action.setSubmitting(true);
-          await new Promise((r) => setTimeout(r, 3000));
-          console.log(values, action);
+          await handleSubmit(values)
           action.setSubmitting(false);
         }}
       >
-        {({ isSubmitting, errors }) => (
+        {({ isSubmitting }) => (
           <Form>
             <S.FormInputsGrid>
               <div>
@@ -109,7 +119,7 @@ const RegisterUserForm = () => {
                 <span>&nbsp;Termos de Uso</span>
               </div>
               <Button type="submit">
-                {isSubmitting ? <S.Loading src="/assets/89.gif" /> : <PaperPlaneIcon />}
+                {isSubmitting ? <LoadingIcon /> : <PaperPlaneIcon />}
                 Enviar
               </Button>
             </S.TermsAndSubmitBtn>
