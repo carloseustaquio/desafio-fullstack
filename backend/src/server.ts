@@ -3,7 +3,7 @@ import "reflect-metadata"
 import express from "express";
 import { Server } from "@overnightjs/core";
 import { Application } from "express";
-import { createConnection } from "typeorm"
+import cors from "cors"
 import { UserController } from "./controllers/UserController";
 import { DBConnection } from "./util/db";
 
@@ -20,6 +20,7 @@ export class SetupServer extends Server {
 
   private setupExpress(): void {
     this.app.use(express.json());
+    this.app.use(cors());
   }
 
   private setupControllers(): void {

@@ -36,6 +36,8 @@
   },
   "dependencies": {
     "@overnightjs/core": "^1.7.5",
+    "@types/cors": "^2.8.7",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
     "pg": "^8.3.3",
