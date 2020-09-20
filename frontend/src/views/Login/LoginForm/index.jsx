@@ -1,7 +1,6 @@
 import React from 'react'
 import * as S from "./styles"
 import { Formik, Field, Form } from "formik";
-// import api from "../../../../functions/api"
 
 import TextInput from "../../../components/TextInput"
 import ErrorMessage from "../../../components/ErrorMessage"
@@ -14,16 +13,7 @@ import LoadingIcon from '../../../icons/LoadingIcon';
 
 import validationSchema from './validationSchema';
 
-const LoginForm = () => {
-  const handleSubmit = async (values) => {
-    try {
-      // const response = await api.post("/user", values)
-      await new Promise(r => setTimeout(r, 3000))
-      // console.log(response)
-    } catch (error) {
-      console.log(error.response)
-    }
-  }
+const LoginForm = ({ handleSubmit }) => {
 
   return (
     <S.Container>

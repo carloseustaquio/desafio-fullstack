@@ -15,6 +15,7 @@ const Routes = () => (
       <Redirect exact from="/" to="/register" />
       <Route exact path="/register" component={RegisterUser} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/app" component={() => <h1>Login Successful!</h1>} />
       <Route path="/" component={() => <h1>404 Not found</h1>} />
     </Switch>
   </Router>
