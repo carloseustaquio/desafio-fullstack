@@ -1,5 +1,16 @@
 import styled from 'styled-components';
-import { darken } from "polished"
+import { darken, transparentize } from "polished"
+
+const getButtonColor = (color, theme) => {
+  switch (color) {
+    case "red":
+      return theme.red
+    case "green":
+      return theme.green_2
+    default:
+      return theme.green_2
+  }
+}
 
 export const Button = styled.button`
   border: none;
@@ -9,8 +20,8 @@ export const Button = styled.button`
   width: fit-content;
 
   cursor: pointer;
-  background: ${({ theme }) => theme.green_2};
-  box-shadow: 0px 4px 10px rgba(125, 213, 111, 0.4);
+  background: ${({ color, theme }) => getButtonColor(color, theme)};
+  box-shadow: ${({ color, theme }) => `0px 4px 10px ${transparentize(0.6, getButtonColor(color, theme))}`};
   color: ${({ theme }) => theme.white};
   transition: all 0.2s ease-in-out;
 
@@ -28,11 +39,11 @@ export const Button = styled.button`
 
   &:hover {
     transform: scale(0.98);
-    background: ${({ theme }) => darken(0.04, theme.green_2)};
+    background: ${({ color, theme }) => darken(0.04, getButtonColor(color, theme))};
   }
 
   &:focus {
     transform: scale(0.98);
-    background: ${({ theme }) => darken(0.04, theme.green_2)};
+    background: ${({ color, theme }) => darken(0.04, getButtonColor(color, theme))};
   }
 `;
