@@ -33,12 +33,12 @@ const RegisterUserForm = () => {
       <S.TextTop>Informe seus dados</S.TextTop>
       <Formik
         initialValues={{
-          firstName: "Test",
-          secondName: "Two",
-          email: "test@two.com",
-          phone: "12341234123",
-          password: "1234",
-          confirmPassword: "1234",
+          firstName: "",
+          secondName: "",
+          email: "",
+          phone: "",
+          password: "",
+          confirmPassword: "",
         }}
         validationSchema={validationSchema}
         onSubmit={async (values, action) => {
