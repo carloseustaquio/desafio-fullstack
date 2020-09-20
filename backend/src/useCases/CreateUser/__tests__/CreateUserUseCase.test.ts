@@ -35,7 +35,7 @@ describe("Create User Use Case", () => {
   const userRepository = new UserRepository() as jest.Mocked<UserRepository>
   const createUserUseCase = new CreateUser(userRepository)
 
-  it("should check if email is already used.", async () => {
+  it("should call findByEmail.", async () => {
     createUserUseCase.execute(fakeUserRequest)
     expect(userRepository.findByEmail).toHaveBeenCalledWith(fakeUserRequest.email)
   })
