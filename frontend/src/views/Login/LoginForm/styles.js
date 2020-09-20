@@ -26,9 +26,20 @@ export const FormInputsGrid = styled.div`
 `;
 
 export const SubmitBtnWrapper = styled.div`
+    position: relative;
   margin-top: 32px;
   display: flex;
-  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+
+  .errorMessage {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    width: fit-content;
+  }
 `;
 
 export const Loading = styled.img`

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import * as S from "./styles"
 import { Formik, Field, Form } from "formik";
+import HeadShake from "react-reveal/HeadShake"
 
 import TextInput from "../../../components/TextInput"
-import ErrorMessage from "../../../components/ErrorMessage"
+import { ErrorMessage, FormikCustomErrorMessage } from "../../../components/ErrorMessage"
 import Button from "../../../components/Button"
 
 import UserIcon from "../../../icons/UserIcon"
@@ -13,7 +14,30 @@ import LoadingIcon from '../../../icons/LoadingIcon';
 
 import validationSchema from './validationSchema';
 
-const LoginForm = ({ handleSubmit }) => {
+const LoginForm = ({ handleApiLogin }) => {
+  const [submitError, setSubmitError] = useState(null)
+  const submitErrorCount = useRef(0)
+
+  const handleSubmit = async (values) => {
+    try {
+      await handleApiLogin(values)
+    }
+    catch (error) {
+      handleSubmitError(error)
+      console.log(error.response)
+    }
+  }
+
+  const handleSubmitError = (error) => {
+    submitErrorCount.current++
+    handleErrorMessage(error.response.status)
+    setTimeout(() => { setSubmitError(null) }, 2000)
+  }
+
+  const handleErrorMessage = (status) => {
+    if ([422, 400].includes(status)) setSubmitError("Email e/ou senha inválidos.")
+    else setSubmitError("Ocorreu um erro ao tentar fazer o login.")
+  }
 
   return (
     <S.Container>
@@ -41,7 +65,7 @@ const LoginForm = ({ handleSubmit }) => {
                   placeholder="Email Pessoal"
                   as={TextInput}
                 />
-                <ErrorMessage name="email" />
+                <FormikCustomErrorMessage name="email" />
               </div>
               <div>
                 <Field
@@ -51,14 +75,17 @@ const LoginForm = ({ handleSubmit }) => {
                   placeholder="Senha"
                   as={TextInput}
                 />
-                <ErrorMessage name="password" />
+                <FormikCustomErrorMessage name="password" />
               </div>
             </S.FormInputsGrid>
             <S.SubmitBtnWrapper>
-              <Button type="submit">
-                {isSubmitting ? <LoadingIcon /> : <PaperPlaneIcon />}
+              <HeadShake spy={submitErrorCount.current}>
+                <Button type="submit" color={submitError && "red"}>
+                  {isSubmitting ? <LoadingIcon /> : <PaperPlaneIcon />}
                 Enviar
               </Button>
+              </HeadShake>
+              <ErrorMessage>{submitError}</ErrorMessage>
             </S.SubmitBtnWrapper>
           </Form>
         )}
