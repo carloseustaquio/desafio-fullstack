@@ -26,22 +26,4 @@ describe("User functional tests", () => {
       phone: fakeUserRequest.phone
     }))
   })
-
-  it("should return 500 when there is a error", async () => {
-    const invalidUserRequest = {
-      email: "",
-      firstName: "",
-      secondName: "",
-      phone: "",
-      password: "",
-    }
-
-    const response = await global.testRequest.post("/user").send(invalidUserRequest)
-
-    expect(response.status).toBe(500)
-    expect(response.body).toEqual({
-      error: "Error while trying to create user."
-    })
-  })
-
 })
