@@ -13,15 +13,10 @@ const Links = ({ mobile }) => (
 )
 
 const RegisterUser = ({ history }) => {
-
-  const handleSubmit = async (values) => {
-    try {
-      const response = await api.post("/auth", values)
-      saveUserToLocalStorage(response.data)
-      history.push("/app")
-    } catch (error) {
-      console.log(error.response)
-    }
+  const handleApiLogin = async (values) => {
+    const response = await api.post("/auth", values)
+    saveUserToLocalStorage(response.data)
+    history.push("/app")
   }
 
   const saveUserToLocalStorage = ({ token, name, email }) => {
@@ -29,15 +24,11 @@ const RegisterUser = ({ history }) => {
     localStorage.setItem("profitfy_user", JSON.stringify({ name, email }));
   };
 
-  useLayoutEffect(() =>
-    window.scrollTo(0, 0)
-    , [])
-
   return (
     <LoginLayout>
       {({ mobile }) => [
         <S.FormWrapper>
-          <LoginForm handleSubmit={handleSubmit} />
+          <LoginForm handleApiLogin={handleApiLogin} />
           {mobile && <Links mobile={mobile} />}
         </S.FormWrapper>,
         !mobile && <Links mobile={mobile} />

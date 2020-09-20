@@ -23,8 +23,8 @@ export const LinksWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* margin: ${({ mobile }) => mobile ? `auto 0 16px 0` : `16px 0 0 0`}; */
-  margin-top: ${({ mobile }) => mobile ? `120px` : `16px`};
+  margin: ${({ mobile }) => mobile ? `auto 0 16px 0` : `16px 0 0 0`};
+  /* margin-top: ${({ mobile }) => mobile ? `120px` : `16px`}; */
   /* margin-top: 16px; */
   letter-spacing: 0.01em;
   font-weight: 600;
