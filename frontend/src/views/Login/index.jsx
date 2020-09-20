@@ -1,16 +1,14 @@
 import React, { useLayoutEffect } from 'react'
 import * as S from './styles'
-import { Link } from "react-router-dom"
 import LoginLayout from "../../layouts/loginLayout"
 import LoginForm from "./LoginForm"
 import api from "../../functions/api"
+import Links from "../components/Links"
 
-const Links = ({ mobile }) => (
-  <S.LinksWrapper mobile={mobile}>
-    <Link to="/">Esqueceu sua senha?</Link>
-    <Link to="/">Cadastrar-se</Link>
-  </S.LinksWrapper>
-)
+const loginLinks = [
+  { link: "/", text: "Esqueceu a senha?" },
+  { link: "/", text: "Cadastrar-se" },
+]
 
 const RegisterUser = ({ history }) => {
   const handleApiLogin = async (values) => {
@@ -29,9 +27,9 @@ const RegisterUser = ({ history }) => {
       {({ mobile }) => [
         <S.FormWrapper>
           <LoginForm handleApiLogin={handleApiLogin} />
-          {mobile && <Links mobile={mobile} />}
+          {mobile && <Links mobile={mobile} links={loginLinks} />}
         </S.FormWrapper>,
-        !mobile && <Links mobile={mobile} />
+        !mobile && <Links mobile={mobile} links={loginLinks} />
       ]}
     </LoginLayout>
   )

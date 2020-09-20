@@ -1,15 +1,13 @@
 import React from 'react'
 import * as S from './styles'
-import { Link } from "react-router-dom"
 import LoginLayout from "../../layouts/loginLayout"
 import RegisterUserForm from "./RegisterUserForm"
+import Links from "../components/Links"
 
-const Links = ({ mobile }) => (
-  <S.LinksWrapper mobile={mobile}>
-    <Link to="/">Esqueceu sua senha?</Link>
-    <Link to="/login">Entrar</Link>
-  </S.LinksWrapper>
-)
+const registerLinks = [
+  { link: "/", text: "Esqueceu a senha?" },
+  { link: "/login", text: "Entrar" },
+]
 
 const RegisterUser = () => {
   return (
@@ -17,9 +15,9 @@ const RegisterUser = () => {
       {({ mobile }) => [
         <S.FormWrapper>
           <RegisterUserForm />
-          {mobile && <Links mobile={mobile} />}
+          {mobile && <Links mobile={mobile} links={registerLinks} />}
         </S.FormWrapper>,
-        !mobile && <Links mobile={mobile} />
+        !mobile && <Links mobile={mobile} links={registerLinks} />
       ]}
     </LoginLayout>
   )
