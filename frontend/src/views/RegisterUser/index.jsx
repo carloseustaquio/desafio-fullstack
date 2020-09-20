@@ -2,7 +2,7 @@ import React from 'react'
 import * as S from './styles'
 import { Link } from "react-router-dom"
 import LoginLayout from "../../layouts/loginLayout"
-import RegisterUserForm from "./components/RegisterUserForm"
+import RegisterUserForm from "./RegisterUserForm"
 
 const Links = ({ mobile }) => (
   <S.LinksWrapper mobile={mobile}>

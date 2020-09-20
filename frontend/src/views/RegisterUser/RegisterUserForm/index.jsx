@@ -1,22 +1,22 @@
 import React from 'react'
 import * as S from "./styles"
 import { Formik, Field, Form } from "formik";
-import api from "../../../../functions/api"
+import api from "../../../functions/api"
 
-import TextInput from "../../../../components/TextInput"
-import ErrorMessage from "../../../../components/ErrorMessage"
-import MaskedInput from '../../../../components/MaskedInput';
-import Button from "../../../../components/Button"
+import TextInput from "../../../components/TextInput"
+import ErrorMessage from "../../../components/ErrorMessage"
+import MaskedInput from '../../../components/MaskedInput';
+import Button from "../../../components/Button"
 
-import BRFlagIcon from "../../../../icons/BRFlagIcon"
-import UserIcon from "../../../../icons/UserIcon"
-import UserIcon2 from "../../../../icons/UserIcon2"
-import EmailIcon from "../../../../icons/EmailIcon"
-import LockIcon from "../../../../icons/LockIcon"
+import BRFlagIcon from "../../../icons/BRFlagIcon"
+import UserIcon from "../../../icons/UserIcon"
+import UserIcon2 from "../../../icons/UserIcon2"
+import EmailIcon from "../../../icons/EmailIcon"
+import LockIcon from "../../../icons/LockIcon"
 
 import validationSchema, { removeMask } from './validationSchema';
-import PaperPlaneIcon from '../../../../icons/PaperPlaneIcon';
-import LoadingIcon from '../../../../icons/LoadingIcon';
+import PaperPlaneIcon from '../../../icons/PaperPlaneIcon';
+import LoadingIcon from '../../../icons/LoadingIcon';
 
 const RegisterUserForm = () => {
   const handleSubmit = async (values) => {
