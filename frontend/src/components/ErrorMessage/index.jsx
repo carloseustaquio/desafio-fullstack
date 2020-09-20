@@ -10,4 +10,10 @@ const Wrapper = styled.span`
     line-height: 8px;
 `
 
-export default props => <Wrapper className="errorMessage"><ErrMsg {...props} /></Wrapper>
+export const ErrorMessage = ({ children }) => <Wrapper className="errorMessage">{children}</Wrapper>
+
+export const FormikCustomErrorMessage = (props) => (
+    <Wrapper className="errorMessage"><ErrMsg {...props} /></Wrapper>
+)
+
+export default FormikCustomErrorMessage
