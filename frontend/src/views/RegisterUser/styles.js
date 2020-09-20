@@ -21,7 +21,8 @@ export const LinksWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 16px;
+  margin: ${({ mobile }) => mobile ? `30px 0 0 0` : `16px 0 0 0`};
+  /* margin-top: 16px; */
   letter-spacing: 0.01em;
   font-weight: 600;
   font-size: 16px;
