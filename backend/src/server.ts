@@ -5,6 +5,7 @@ import { Server } from "@overnightjs/core";
 import { Application } from "express";
 import cors from "cors"
 import { UserController } from "./controllers/UserController";
+import { AuthController } from "./controllers/AuthController";
 import { DBConnection } from "./util/db";
 
 export class SetupServer extends Server {
@@ -25,7 +26,8 @@ export class SetupServer extends Server {
 
   private setupControllers(): void {
     const userController = new UserController();
-    this.addControllers([userController]);
+    const authController = new AuthController();
+    this.addControllers([userController, authController]);
   }
 
   private async databaseSetup(): Promise<void> {
