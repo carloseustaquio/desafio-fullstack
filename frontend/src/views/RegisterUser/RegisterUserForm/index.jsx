@@ -1,7 +1,6 @@
 import React from 'react'
 import * as S from "./styles"
 import { Formik, Field, Form } from "formik";
-import api from "../../../functions/api"
 
 import TextInput from "../../../components/TextInput"
 import ErrorMessage from "../../../components/ErrorMessage"
@@ -18,15 +17,7 @@ import validationSchema, { removeMask } from './validationSchema';
 import PaperPlaneIcon from '../../../icons/PaperPlaneIcon';
 import LoadingIcon from '../../../icons/LoadingIcon';
 
-const RegisterUserForm = () => {
-  const handleSubmit = async (values) => {
-    try {
-      const response = await api.post("/user", values)
-      console.log(response)
-    } catch (error) {
-      console.log(error.response)
-    }
-  }
+const RegisterUserForm = ({ handleSubmit }) => {
 
   return (
     <S.Container>
