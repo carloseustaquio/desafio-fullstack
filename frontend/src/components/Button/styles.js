@@ -31,4 +31,8 @@ export const Button = styled.button`
     background: ${({ theme }) => darken(0.04, theme.green_2)};
   }
 
+  &:focus {
+    transform: scale(0.98);
+    background: ${({ theme }) => darken(0.04, theme.green_2)};
+  }
 `;
