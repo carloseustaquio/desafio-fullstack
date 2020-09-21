@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './styles'
-import LoginLayout from "../../layouts/loginLayout"
+import RegisterLoginLayout from "../../layouts/registerLoginLayout"
 import RegisterUserForm from "./RegisterUserForm"
 import Links from "../components/Links"
 import api from "../../functions/api"
@@ -22,7 +22,7 @@ const RegisterUser = ({ history }) => {
   }
 
   return (
-    <LoginLayout>
+    <RegisterLoginLayout>
       {({ mobile }) => [
         <S.FormWrapper>
           <RegisterUserForm handleSubmit={handleSubmit} />
@@ -30,7 +30,7 @@ const RegisterUser = ({ history }) => {
         </S.FormWrapper>,
         !mobile && <Links mobile={mobile} links={registerLinks} />
       ]}
-    </LoginLayout>
+    </RegisterLoginLayout>
   )
 }
 

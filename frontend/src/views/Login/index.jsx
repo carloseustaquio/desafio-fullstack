@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react'
 import * as S from './styles'
-import LoginLayout from "../../layouts/loginLayout"
+import RegisterLoginLayout from "../../layouts/registerLoginLayout"
 import LoginForm from "./LoginForm"
 import api from "../../functions/api"
 import Links from "../components/Links"
@@ -23,7 +23,7 @@ const RegisterUser = ({ history }) => {
   };
 
   return (
-    <LoginLayout>
+    <RegisterLoginLayout>
       {({ mobile }) => [
         <S.FormWrapper>
           <LoginForm handleApiLogin={handleApiLogin} />
@@ -31,7 +31,7 @@ const RegisterUser = ({ history }) => {
         </S.FormWrapper>,
         !mobile && <Links mobile={mobile} links={loginLinks} />
       ]}
-    </LoginLayout>
+    </RegisterLoginLayout>
   )
 }
 

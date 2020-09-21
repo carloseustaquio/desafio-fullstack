@@ -5,7 +5,7 @@ import useMobile from '../../hooks/useMobile'
 import { Link } from "react-router-dom"
 import { Fade } from "react-reveal";
 
-const LoginLayout = ({ children: Children }) => {
+const RegisterLoginLayout = ({ children: Children }) => {
   const [mobile] = useMobile(425)
 
   return (
@@ -22,4 +22,4 @@ const LoginLayout = ({ children: Children }) => {
   )
 }
 
-export default LoginLayout
+export default RegisterLoginLayout
