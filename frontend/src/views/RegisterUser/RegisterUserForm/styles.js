@@ -30,6 +30,7 @@ export const TermsAndSubmitBtn = styled.div`
   margin-top: 32px;
   display: grid;
   grid-gap: 18px; 
+  justify-items: center;
 
   > div {
     font-size: 12px;

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import * as S from "./styles"
 import { Formik, Field, Form } from "formik";
+import HeadShake from "react-reveal/HeadShake"
 
 import TextInput from "../../../components/TextInput"
-import ErrorMessage from "../../../components/ErrorMessage"
+import { ErrorMessage, FormikCustomErrorMessage } from "../../../components/ErrorMessage"
 import MaskedInput from '../../../components/MaskedInput';
 import Button from "../../../components/Button"
 
@@ -16,8 +17,37 @@ import LockIcon from "../../../icons/LockIcon"
 import validationSchema, { removeMask } from './validationSchema';
 import PaperPlaneIcon from '../../../icons/PaperPlaneIcon';
 import LoadingIcon from '../../../icons/LoadingIcon';
+import { useHistory } from 'react-router-dom';
+import SuccessIcon from '../../../icons/SuccessIcon';
 
-const RegisterUserForm = ({ handleSubmit }) => {
+const RegisterUserForm = ({ handleApiRegisterUser }) => {
+  const history = useHistory()
+  const [submitError, setSubmitError] = useState(null)
+  const [submitSuccess, setSubmitSuccess] = useState(null)
+  const submitErrorCount = useRef(0)
+
+  const handleSubmit = async (values) => {
+    try {
+      await handleApiRegisterUser(values)
+      setSubmitSuccess(true)
+    }
+    catch (error) {
+      handleSubmitError(error)
+      console.log(error.response)
+    }
+  }
+
+  const handleSubmitError = (error) => {
+    submitErrorCount.current++
+    setSubmitError("Ocorreu um erro ao tentar fazer o login.")
+    setTimeout(() => { setSubmitError(null) }, 2000)
+  }
+
+  const switchIcon = (isSubmitting) => {
+    if (isSubmitting) return <LoadingIcon />
+    if (submitSuccess) return <SuccessIcon />
+    else return <PaperPlaneIcon />
+  }
 
   return (
     <S.Container>
@@ -34,9 +64,10 @@ const RegisterUserForm = ({ handleSubmit }) => {
         validationSchema={validationSchema}
         onSubmit={async (values, action) => {
           values.phone = removeMask(values.phone)
-          action.setSubmitting(true);
+          action.setSubmitting(true)
           await handleSubmit(values)
-          action.setSubmitting(false);
+          action.setSubmitting(false)
+          action.resetForm()
         }}
       >
         {({ isSubmitting }) => (
@@ -50,7 +81,7 @@ const RegisterUserForm = ({ handleSubmit }) => {
                   placeholder="Nome"
                   as={TextInput}
                 />
-                <ErrorMessage name="email" />
+                <FormikCustomErrorMessage name="email" />
               </div>
               <div>
                 <Field
@@ -60,7 +91,7 @@ const RegisterUserForm = ({ handleSubmit }) => {
                   placeholder="Sobrenome"
                   as={TextInput}
                 />
-                <ErrorMessage name="secondName" />
+                <FormikCustomErrorMessage name="secondName" />
               </div>
               <div>
                 <Field
@@ -70,7 +101,7 @@ const RegisterUserForm = ({ handleSubmit }) => {
                   placeholder="Email Pessoal"
                   as={TextInput}
                 />
-                <ErrorMessage name="email" />
+                <FormikCustomErrorMessage name="email" />
               </div>
               <div>
                 <Field
@@ -81,7 +112,7 @@ const RegisterUserForm = ({ handleSubmit }) => {
                   mask="(99) 99999-9999"
                   as={MaskedInput}
                 />
-                <ErrorMessage name="phone" />
+                <FormikCustomErrorMessage name="phone" />
               </div>
               <div>
                 <Field
@@ -91,7 +122,7 @@ const RegisterUserForm = ({ handleSubmit }) => {
                   placeholder="Senha"
                   as={TextInput}
                 />
-                <ErrorMessage name="password" />
+                <FormikCustomErrorMessage name="password" />
               </div>
               <div>
                 <Field
@@ -101,19 +132,21 @@ const RegisterUserForm = ({ handleSubmit }) => {
                   placeholder="Confirmar Senha"
                   as={TextInput}
                 />
-                <ErrorMessage name="confirmPassword" />
+                <FormikCustomErrorMessage name="confirmPassword" />
               </div>
-
             </S.FormInputsGrid>
             <S.TermsAndSubmitBtn>
               <div>
                 Ao se cadastrar você automaticamente concorda com nossos
                 <span>&nbsp;Termos de Uso</span>
               </div>
-              <Button type="submit">
-                {isSubmitting ? <LoadingIcon /> : <PaperPlaneIcon />}
-                Enviar
-              </Button>
+              <HeadShake spy={submitErrorCount.current}>
+                <Button type="submit" color={submitError && "red"}>
+                  {switchIcon(isSubmitting)}
+                  {submitSuccess ? "Enviado!" : "Enviar"}
+                </Button>
+              </HeadShake>
+              <ErrorMessage>{submitError}</ErrorMessage>
             </S.TermsAndSubmitBtn>
           </Form>
         )}

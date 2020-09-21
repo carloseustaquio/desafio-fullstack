@@ -11,21 +11,17 @@ const registerLinks = [
 ]
 
 const RegisterUser = ({ history }) => {
-  const handleSubmit = async (values) => {
-    try {
-      const response = await api.post("/user", values)
-      history.push("/login")
-      console.log(response)
-    } catch (error) {
-      console.log(error.response)
-    }
+  const handleApiRegisterUser = async (values) => {
+    const response = await api.post("/user", values)
+    console.log(response)
+    setTimeout(() => { history.push("/login") }, 2000)
   }
 
   return (
     <RegisterLoginLayout>
       {({ mobile }) => [
         <S.FormWrapper>
-          <RegisterUserForm handleSubmit={handleSubmit} />
+          <RegisterUserForm handleApiRegisterUser={handleApiRegisterUser} />
           {mobile && <Links mobile={mobile} links={registerLinks} />}
         </S.FormWrapper>,
         !mobile && <Links mobile={mobile} links={registerLinks} />
