@@ -1,5 +1,6 @@
 {
   "App": {
+    "port": 8080,
     "privateKey": "IkNdYQafCRK8lSHoCnlChGObvC8CvhmdfJdgUfAXe5F590dEgjoGuIqFxp2z"
   }
 }

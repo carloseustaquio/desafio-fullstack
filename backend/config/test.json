@@ -1,5 +1,6 @@
 {
   "App": {
+    "port": 8080,
     "privateKey": "fake-private-key"
   }
 }
