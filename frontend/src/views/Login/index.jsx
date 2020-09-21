@@ -6,11 +6,11 @@ import api from "../../functions/api"
 import Links from "../components/Links"
 
 const loginLinks = [
-  { link: "/", text: "Esqueceu a senha?" },
+  { link: "/forgot-pass", text: "Esqueceu a senha?" },
   { link: "/", text: "Cadastrar-se" },
 ]
 
-const RegisterUser = ({ history }) => {
+const Login = ({ history }) => {
   const handleApiLogin = async (values) => {
     const response = await api.post("/auth", values)
     saveUserToLocalStorage(response.data)
@@ -35,4 +35,4 @@ const RegisterUser = ({ history }) => {
   )
 }
 
-export default RegisterUser
+export default Login

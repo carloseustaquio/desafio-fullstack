@@ -6,7 +6,7 @@ import Links from "../components/Links"
 import api from "../../functions/api"
 
 const registerLinks = [
-  { link: "/", text: "Esqueceu a senha?" },
+  { link: "/forgot-pass", text: "Esqueceu a senha?" },
   { link: "/login", text: "Entrar" },
 ]
 
