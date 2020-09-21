@@ -6,9 +6,6 @@ export const LinksWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: ${({ mobile }) => mobile ? `46px 0 0 0` : `16px 0 0 0`};
-  /* margin: ${({ mobile }) => mobile ? `auto 0 16px 0` : `16px 0 0 0`}; */
-  /* margin-top: ${({ mobile }) => mobile ? `120px` : `16px`}; */
-  /* margin-top: 16px; */
   letter-spacing: 0.01em;
   font-weight: 600;
   font-size: 16px;
