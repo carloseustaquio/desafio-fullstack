@@ -17,20 +17,4 @@ export class Session {
 
     return token
   }
-
-  // static verifyToken(token: string): object {
-  //   try {
-  //     const decoded: any = jwt.verify(token, Session.key)
-  //     if (typeof decoded === 'string') throw new Error("Bad formatted token.")
-  //     if (Session.isTokenExpired(decoded.exp)) throw new Error("Expired token.")
-  //     return decoded
-  //   } catch (error) {
-  //     console.log(error)
-  //     throw error
-  //   }
-  // }
-
-  // private static isTokenExpired(exp: number) {
-  //   return exp * 1000 < Date.now()
-  // }
 }
