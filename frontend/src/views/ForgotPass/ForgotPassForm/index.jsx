@@ -29,8 +29,13 @@ const ForgotPassForm = ({ handleApiLogin }) => {
 
   const handleSubmitError = (error) => {
     submitErrorCount.current++
-    setSubmitError("Ocorreu um erro ao tentar fazer o login.")
-    setTimeout(() => { setSubmitError(null) }, 2000)
+    handleErrorMessage(error.response.status)
+    setTimeout(() => { setSubmitError(null) }, 3000)
+  }
+
+  const handleErrorMessage = (status) => {
+    if ([500].includes(status)) setSubmitError("Erro no servidor.")
+    else setSubmitError("Ocorreu um erro ao tentar fazer o login.")
   }
 
   return (

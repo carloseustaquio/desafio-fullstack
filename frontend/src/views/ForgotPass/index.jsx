@@ -12,9 +12,7 @@ const forgotPassLinks = [
 
 const ForgotPass = ({ history }) => {
   const handleApi = async (values) => {
-    // const response = await api.post("/auth", values)
-    // saveUserToLocalStorage(response.data)
-    // history.push("/app")
+    const response = await api.post("/auth/recover-password", values)
   }
 
   return (

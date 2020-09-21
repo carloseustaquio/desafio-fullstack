@@ -40,7 +40,7 @@ const RegisterUserForm = ({ handleApiRegisterUser }) => {
   const handleSubmitError = (error) => {
     submitErrorCount.current++
     setSubmitError("Ocorreu um erro ao tentar fazer o login.")
-    setTimeout(() => { setSubmitError(null) }, 2000)
+    setTimeout(() => { setSubmitError(null) }, 3000)
   }
 
   const switchIcon = (isSubmitting) => {

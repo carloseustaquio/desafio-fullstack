@@ -31,7 +31,7 @@ const LoginForm = ({ handleApiLogin }) => {
   const handleSubmitError = (error) => {
     submitErrorCount.current++
     handleErrorMessage(error.response.status)
-    setTimeout(() => { setSubmitError(null) }, 2000)
+    setTimeout(() => { setSubmitError(null) }, 3000)
   }
 
   const handleErrorMessage = (status) => {
