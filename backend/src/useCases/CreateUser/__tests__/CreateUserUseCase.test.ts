@@ -1,35 +1,11 @@
-import { User } from "@src/models/User"
 import { UserRepository } from "@src/repositories/implementations/UserRepository"
 import { CreateUser } from "../index"
 
+import fakeUserRequest from "@test/fixtures/fakeUserRequest.json"
+import invalidUserRequest from "@test/fixtures/invalidUserRequest.json"
+import { fakeUser } from "@test/fixtures/fakeUser"
+
 jest.mock("@src/repositories/implementations/UserRepository")
-
-const fakeUser = {
-  id: "",
-  email: "teste1@teste.com",
-  firstName: "Teste",
-  secondName: "Um",
-  phone: "+5521900000001",
-  passwordHash: "",
-  created_at: new Date(),
-  updated_at: new Date()
-}
-
-const fakeUserRequest = {
-  email: "teste1@teste.com",
-  firstName: "Teste",
-  secondName: "Um",
-  phone: "+5521900000001",
-  password: "1234",
-}
-
-const invalidUserRequest = {
-  email: "",
-  firstName: "",
-  secondName: "",
-  phone: "",
-  password: "",
-}
 
 describe("Create User Use Case", () => {
   const userRepository = new UserRepository() as jest.Mocked<UserRepository>

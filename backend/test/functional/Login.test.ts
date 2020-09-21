@@ -2,18 +2,11 @@ import { CreateUser } from "@src/useCases/CreateUser"
 import { UserRepository } from "@src/repositories/implementations/UserRepository"
 import { getManager } from "typeorm"
 import { User } from "@src/models/User"
-
-const fakeUserRequest = {
-  email: "functionalAuthTest@functionalTests.com",
-  firstName: "Test",
-  secondName: "Functional",
-  phone: "+5521900000001",
-  password: "1234",
-}
+import fakeUserRequest from "../fixtures/fakeUserRequest.json"
 
 const fakeLogin = {
-  email: "functionalAuthTest@functionalTests.com",
-  password: "1234",
+  email: fakeUserRequest.email,
+  password: fakeUserRequest.password,
 }
 
 describe("Login functional tests", () => {

@@ -1,19 +1,16 @@
 import { User } from "@src/models/User"
 import { getManager } from "typeorm"
+import fakeUserRequest from "../fixtures/fakeUserRequest.json"
 
-const fakeUserRequest = {
-  email: "teste5@teste.com",
-  firstName: "Teste",
-  secondName: "Cinco",
-  phone: "+5521900000001",
-  password: "1234",
+
+const deletUser = async () => {
+  const db = getManager()
+  await db.delete(User, { email: fakeUserRequest.email })
 }
 
 describe("User functional tests", () => {
-  beforeEach(async () => {
-    const db = getManager()
-    await db.delete(User, { email: fakeUserRequest.email })
-  })
+  beforeEach(async () => { await deletUser() })
+  afterAll(async () => { await deletUser() })
 
   it("should create a user with success", async () => {
     const response = await global.testRequest.post("/user").send(fakeUserRequest)
