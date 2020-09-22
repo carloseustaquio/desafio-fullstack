@@ -4,7 +4,7 @@ EXPOSE 8080
 
 RUN npm install -g typescript ts-node ts-node-dev
 
-# Add docker-compose-wait tool -------------------
+# Add docker-compose-wait tool
 ENV WAIT_VERSION 2.7.2
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
 RUN chmod +x /wait
@@ -22,5 +22,3 @@ RUN yarn
 COPY --chown=node:node . .
 
 USER root
-
-# ENTRYPOINT [ "./init.sh" ]

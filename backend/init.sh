@@ -1,3 +1,3 @@
 #!/bin/sh
-# yarn db:migrate
+yarn db:migrate
 yarn dev
