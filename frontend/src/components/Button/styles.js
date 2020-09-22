@@ -7,6 +7,8 @@ const getButtonColor = (color, theme) => {
       return theme.red
     case "green":
       return theme.green_2
+    case "grey":
+      return theme.grey_1
     default:
       return theme.green_2
   }
