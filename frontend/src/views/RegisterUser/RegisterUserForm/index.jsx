@@ -81,7 +81,7 @@ const RegisterUserForm = ({ handleApiRegisterUser }) => {
                   placeholder="Nome"
                   as={TextInput}
                 />
-                <FormikCustomErrorMessage name="email" />
+                <FormikCustomErrorMessage name="firstName" />
               </div>
               <div>
                 <Field
