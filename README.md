@@ -18,22 +18,31 @@ TypeORM | Axios
 - Arquitetura em camadas
 - Docker
 
-## Como Rodar 🧪
+## Como Rodar 🏎️
 
 Pré-requisitos: Ter o Docker instalado e rodando.
 
-1. Dentro de /backend habilite a inicialização pelo init.sh:
-```
-cd backend
-chmod +x ./init.sh
-```
-
-2. Na pasta raiz rode o comando a seguir para inicializar o projeto:
+1. Na pasta raiz rode o comando a seguir para inicializar o projeto:
 ```
 docker-compose up
 ```
 
-3. Para parar, rode um:
+2. Para parar, rode um:
 ```
 docker-compose stop
+```
+
+## Testes ️🧪
+Pré-requisitos: O projeto deve estar rodando.
+
+1. Entre no container *backend* através do Docker
+```
+docker exec -it backend bash
+```
+
+2. Execute os testes
+```
+yarn test  # run all tests
+yarn test:unit 
+yarn test:functional 
 ```
