@@ -4,8 +4,6 @@ services:
   backend:
     container_name: backend
     build: ./backend
-    volumes:
-      - ./backend:/home/node/api
     ports:
       - 8080:8080
     depends_on: 
@@ -25,9 +23,6 @@ services:
       - 3000
     ports: 
       - 3000:3000
-    volumes:
-      - ./frontend:/home/app
-      - /node_modules
     links: 
       - backend
     command: yarn start
