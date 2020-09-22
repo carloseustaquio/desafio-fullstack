@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import { ClassErrorMiddleware, Controller, Post } from "@overnightjs/core";
-import { UserRepository } from "@src/repositories/implementations/UserRepository";
 import { errorMiddleware } from "@src/middlewares/errorMiddleware"
-import { LoginUseCase } from "@src/useCases/Login";
 import { DefaultError } from "@src/util/errors/DefaultError";
+import { LoginUseCase } from "@src/useCases/Login";
+import { UserRepository } from "@src/repositories/implementations/UserRepository";
 
 @Controller("auth")
 @ClassErrorMiddleware(errorMiddleware)
