@@ -21,7 +21,7 @@ describe("Login functional tests", () => {
   })
 
 
-  it("should login and receive email, name and token if login values are good", async () => {
+  it("should login with success and return email, name and token", async () => {
     const response = await global.testRequest.post("/auth").send(fakeLogin)
 
     expect(response.status).toBe(200)
