@@ -7,7 +7,7 @@ import Links from "../components/Links"
 
 const loginLinks = [
   { link: "/forgot-pass", text: "Esqueceu a senha?" },
-  { link: "/", text: "Cadastrar-se" },
+  { link: "/register", text: "Cadastrar-se" },
 ]
 
 const Login = ({ history }) => {
